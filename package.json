@@ -1,0 +1,22 @@
+{
+  "name": "zaim-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Zaim MCP Server - Access Zaim household finance data via Model Context Protocol",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "oauth-1.0a": "^2.2.6",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "typescript": "^5.9.3"
+  }
+}
