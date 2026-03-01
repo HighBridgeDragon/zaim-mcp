@@ -35,6 +35,27 @@ function errorResult(e: unknown): ToolResult {
   };
 }
 
+function registerSimpleGetTool(
+  server: McpServer,
+  client: ZaimClient,
+  name: string,
+  title: string,
+  description: string,
+  path: string,
+): void {
+  server.registerTool(
+    name,
+    { title, description, inputSchema: z.object({}) },
+    async () => {
+      try {
+        return successResult(await client.get(path));
+      } catch (e) {
+        return errorResult(e);
+      }
+    },
+  );
+}
+
 const server = new McpServer({
   name: "zaim-mcp",
   version: "1.0.0",
@@ -42,24 +63,15 @@ const server = new McpServer({
 
 const client = new ZaimClient();
 
-// 認証確認 & ユーザー情報取得
-server.registerTool(
+registerSimpleGetTool(
+  server,
+  client,
   "zaim_verify",
-  {
-    title: "Zaim認証確認",
-    description: "Zaim APIの認証状態を確認し、ユーザー情報を返します",
-    inputSchema: z.object({}),
-  },
-  async () => {
-    try {
-      return successResult(await client.get("/v2/home/user/verify"));
-    } catch (e) {
-      return errorResult(e);
-    }
-  }
+  "Zaim認証確認",
+  "Zaim APIの認証状態を確認し、ユーザー情報を返します",
+  "/v2/home/user/verify",
 );
 
-// 収支記録の取得
 server.registerTool(
   "zaim_get_money",
   {
@@ -88,109 +100,64 @@ server.registerTool(
   async (params) => {
     try {
       const apiParams: Record<string, string | number> = { mapping: 1 };
-      if (params.mode) apiParams.mode = params.mode;
-      if (params.start_date) apiParams.start_date = params.start_date;
-      if (params.end_date) apiParams.end_date = params.end_date;
-      if (params.category_id) apiParams.category_id = params.category_id;
-      if (params.genre_id) apiParams.genre_id = params.genre_id;
-      if (params.account_id) apiParams.account_id = params.account_id;
-      if (params.limit) apiParams.limit = params.limit;
-      if (params.page) apiParams.page = params.page;
-
+      for (const [key, value] of Object.entries(params)) {
+        if (value !== undefined) {
+          apiParams[key] = value;
+        }
+      }
       const data = await client.get("/v2/home/money", apiParams);
       return successResult(data);
     } catch (e) {
       return errorResult(e);
     }
-  }
+  },
 );
 
-// カテゴリ一覧（ユーザー）
-server.registerTool(
+registerSimpleGetTool(
+  server,
+  client,
   "zaim_get_categories",
-  {
-    title: "Zaimカテゴリ取得",
-    description: "ユーザーのカテゴリ一覧を取得します",
-    inputSchema: z.object({}),
-  },
-  async () => {
-    try {
-      return successResult(await client.get("/v2/home/category"));
-    } catch (e) {
-      return errorResult(e);
-    }
-  }
+  "Zaimカテゴリ取得",
+  "ユーザーのカテゴリ一覧を取得します",
+  "/v2/home/category",
 );
 
-// ジャンル一覧（ユーザー）
-server.registerTool(
+registerSimpleGetTool(
+  server,
+  client,
   "zaim_get_genres",
-  {
-    title: "Zaimジャンル取得",
-    description: "ユーザーのジャンル一覧を取得します",
-    inputSchema: z.object({}),
-  },
-  async () => {
-    try {
-      return successResult(await client.get("/v2/home/genre"));
-    } catch (e) {
-      return errorResult(e);
-    }
-  }
+  "Zaimジャンル取得",
+  "ユーザーのジャンル一覧を取得します",
+  "/v2/home/genre",
 );
 
-// 口座一覧
-server.registerTool(
+registerSimpleGetTool(
+  server,
+  client,
   "zaim_get_accounts",
-  {
-    title: "Zaim口座取得",
-    description: "ユーザーの口座一覧を取得します",
-    inputSchema: z.object({}),
-  },
-  async () => {
-    try {
-      return successResult(await client.get("/v2/home/account"));
-    } catch (e) {
-      return errorResult(e);
-    }
-  }
+  "Zaim口座取得",
+  "ユーザーの口座一覧を取得します",
+  "/v2/home/account",
 );
 
-// デフォルトカテゴリ一覧
-server.registerTool(
+registerSimpleGetTool(
+  server,
+  client,
   "zaim_get_default_categories",
-  {
-    title: "Zaimデフォルトカテゴリ取得",
-    description: "Zaimのデフォルトカテゴリ一覧を取得します",
-    inputSchema: z.object({}),
-  },
-  async () => {
-    try {
-      return successResult(await client.get("/v2/category"));
-    } catch (e) {
-      return errorResult(e);
-    }
-  }
+  "Zaimデフォルトカテゴリ取得",
+  "Zaimのデフォルトカテゴリ一覧を取得します",
+  "/v2/category",
 );
 
-// 通貨一覧
-server.registerTool(
+registerSimpleGetTool(
+  server,
+  client,
   "zaim_get_currencies",
-  {
-    title: "Zaim通貨取得",
-    description: "利用可能な通貨一覧を取得します",
-    inputSchema: z.object({}),
-  },
-  async () => {
-    try {
-      return successResult(await client.get("/v2/currency"));
-    } catch (e) {
-      return errorResult(e);
-    }
-  }
+  "Zaim通貨取得",
+  "利用可能な通貨一覧を取得します",
+  "/v2/currency",
 );
 
-// サーバー起動
 async function main(): Promise<void> {
   const transport = new StdioServerTransport();
   await server.connect(transport);
