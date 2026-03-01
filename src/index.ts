@@ -47,7 +47,7 @@ server.registerTool(
   {
     title: "Zaim収支取得",
     description:
-      "Zaimの収支記録を取得します。日付範囲・カテゴリ・種別でフィルタ可能です",
+      "Zaimの収支記録を取得します（手動入力データのみ。銀行・カード連携データは対象外）。日付範囲・カテゴリ・種別でフィルタ可能です",
     inputSchema: z.object({
       mode: z
         .enum(["payment", "income", "transfer"])
@@ -57,7 +57,14 @@ server.registerTool(
       end_date: dateSchema.optional().describe("終了日 (YYYY-MM-DD)"),
       category_id: z.number().optional().describe("カテゴリID"),
       genre_id: z.number().optional().describe("ジャンルID"),
-      account_id: z.number().optional().describe("口座ID"),
+      order: z
+        .enum(["id", "date"])
+        .optional()
+        .describe("ソート基準 (デフォルト: date)"),
+      group_by: z
+        .literal("receipt_id")
+        .optional()
+        .describe("receipt_idでグルーピング"),
       limit: z
         .number()
         .min(1)
