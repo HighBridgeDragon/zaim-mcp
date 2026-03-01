@@ -9,9 +9,9 @@ const endpoints: {
 }[] = [
   { path: "/v2/home/user/verify" },
   { path: "/v2/home/money", params: { limit: 1, mapping: 1 } },
-  { path: "/v2/home/category" },
-  { path: "/v2/home/genre" },
-  { path: "/v2/home/account" },
+  { path: "/v2/home/category", params: { mapping: 1 } },
+  { path: "/v2/home/genre", params: { mapping: 1 } },
+  { path: "/v2/home/account", params: { mapping: 1 } },
   { path: "/v2/category" },
   { path: "/v2/currency" },
 ];
