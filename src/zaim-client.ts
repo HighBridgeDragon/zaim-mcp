@@ -31,11 +31,16 @@ export class ZaimClient {
     this.token = { key: accessToken, secret: accessTokenSecret };
   }
 
-  async get<T = unknown>(path: string, params?: Record<string, string | number>): Promise<T> {
+  private buildURL(path: string): URL {
     const url = new URL(path, BASE_URL);
     if (url.host !== ALLOWED_HOST) {
       throw new Error("Invalid API path: unauthorized host");
     }
+    return url;
+  }
+
+  async get<T = unknown>(path: string, params?: Record<string, string | number>): Promise<T> {
+    const url = this.buildURL(path);
     if (params) {
       for (const [key, value] of Object.entries(params)) {
         if (value !== undefined && value !== null) {

@@ -3,6 +3,14 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 import { ZaimClient } from "./zaim-client.js";
 
+function isValidDate(d: string): boolean {
+  const [year, month, day] = d.split("-").map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return date.getUTCFullYear() === year && date.getUTCMonth() + 1 === month && date.getUTCDate() === day;
+}
+
+const dateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine(isValidDate, { message: "Invalid date" });
+
 const server = new McpServer({
   name: "zaim-mcp",
   version: "1.0.0",
@@ -36,8 +44,8 @@ server.registerTool(
     description: "Zaimの収支記録を取得します。日付範囲・カテゴリ・種別でフィルタ可能です",
     inputSchema: z.object({
       mode: z.enum(["payment", "income", "transfer"]).optional().describe("種別フィルタ: payment=支出, income=収入, transfer=振替"),
-      start_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine((d) => !isNaN(Date.parse(d)), { message: "Invalid date" }).optional().describe("開始日 (YYYY-MM-DD)"),
-      end_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine((d) => !isNaN(Date.parse(d)), { message: "Invalid date" }).optional().describe("終了日 (YYYY-MM-DD)"),
+      start_date: dateSchema.optional().describe("開始日 (YYYY-MM-DD)"),
+      end_date: dateSchema.optional().describe("終了日 (YYYY-MM-DD)"),
       category_id: z.number().optional().describe("カテゴリID"),
       genre_id: z.number().optional().describe("ジャンルID"),
       account_id: z.number().optional().describe("口座ID"),
