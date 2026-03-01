@@ -29,6 +29,7 @@ Zaim家計簿APIのMCPサーバー（Model Context Protocol）。
 - `.githooks/pre-commit` — Biome check on staged files
 - `.github/workflows/ci.yml` — CI: lint + typecheck + test on PR/push to master
 - `.github/workflows/integration.yml` — 統合テスト: 週次スケジュール + 手動トリガー（GitHub Secrets必要）
+- `.github/workflows/publish.yml` — CD: npm publish on GitHub Release (with provenance)
 
 ## Commands
 - `bun run start` — Start MCP server (stdio transport)
