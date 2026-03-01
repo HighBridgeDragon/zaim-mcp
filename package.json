@@ -1,6 +1,6 @@
 {
   "name": "@highbridgedragon/zaim-mcp",
-  "version": "1.0.1",
+  "version": "0.1.0",
   "type": "module",
   "description": "Zaim MCP Server - Access Zaim household finance data via Model Context Protocol",
   "main": "build/index.js",
