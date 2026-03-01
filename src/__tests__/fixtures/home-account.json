@@ -1,0 +1,506 @@
+{
+  "accounts": [
+    {
+      "id": 2,
+      "name": "テスト口座1",
+      "modified": "2016-09-04 20:16:14",
+      "sort": 0,
+      "active": -1,
+      "local_id": 2,
+      "website_id": 0,
+      "parent_account_id": 2
+    },
+    {
+      "id": 3,
+      "name": "テスト口座2",
+      "modified": "2016-09-04 20:16:19",
+      "sort": 0,
+      "active": -1,
+      "local_id": 3,
+      "website_id": 0,
+      "parent_account_id": 3
+    },
+    {
+      "id": 4,
+      "name": "テスト口座3",
+      "modified": "2016-09-04 20:15:45",
+      "sort": 0,
+      "active": -1,
+      "local_id": 4,
+      "website_id": 0,
+      "parent_account_id": 4
+    },
+    {
+      "id": 5,
+      "name": "テスト口座4",
+      "modified": "2018-05-27 09:12:21",
+      "sort": 0,
+      "active": -1,
+      "local_id": 5,
+      "website_id": 0,
+      "parent_account_id": 5
+    },
+    {
+      "id": 6,
+      "name": "テスト口座5",
+      "modified": "2016-09-04 20:15:54",
+      "sort": 0,
+      "active": -1,
+      "local_id": 6,
+      "website_id": 0,
+      "parent_account_id": 6
+    },
+    {
+      "id": 7,
+      "name": "テスト口座6",
+      "modified": "2016-09-04 20:17:07",
+      "sort": 0,
+      "active": -1,
+      "local_id": 7,
+      "website_id": 0,
+      "parent_account_id": 7
+    },
+    {
+      "id": 7950596,
+      "name": "テスト口座7",
+      "modified": "2016-09-04 20:16:04",
+      "sort": 0,
+      "active": -1,
+      "local_id": 7950596,
+      "website_id": 0,
+      "parent_account_id": 0
+    },
+    {
+      "id": 7960696,
+      "name": "テスト口座8",
+      "modified": "2019-02-24 06:59:05",
+      "sort": 0,
+      "active": -1,
+      "local_id": 7960696,
+      "website_id": 1899,
+      "parent_account_id": 0
+    },
+    {
+      "id": 8005434,
+      "name": "テスト口座9",
+      "modified": "2020-07-03 12:57:43",
+      "sort": 0,
+      "active": -1,
+      "local_id": 8005434,
+      "website_id": 1899,
+      "parent_account_id": 0
+    },
+    {
+      "id": 8998488,
+      "name": "テスト口座10",
+      "modified": "2021-02-08 14:09:19",
+      "sort": 0,
+      "active": -1,
+      "local_id": 8998488,
+      "website_id": 2833,
+      "parent_account_id": 0
+    },
+    {
+      "id": 9493001,
+      "name": "テスト口座11",
+      "modified": "2020-07-03 12:57:52",
+      "sort": 0,
+      "active": -1,
+      "local_id": 9493001,
+      "website_id": 2111,
+      "parent_account_id": 0
+    },
+    {
+      "id": 9502943,
+      "name": "テスト口座12",
+      "modified": "2021-08-24 05:37:40",
+      "sort": 0,
+      "active": -1,
+      "local_id": 9502943,
+      "website_id": 22,
+      "parent_account_id": 0
+    },
+    {
+      "id": 11161416,
+      "name": "テスト口座13",
+      "modified": "2025-04-24 10:34:27",
+      "sort": 0,
+      "active": -1,
+      "local_id": 11161416,
+      "website_id": 4681,
+      "parent_account_id": 0,
+      "original_name": "テスト口座13"
+    },
+    {
+      "id": 12734272,
+      "name": "テスト口座14",
+      "modified": "2025-10-08 07:11:51",
+      "sort": 0,
+      "active": -1,
+      "local_id": 12734272,
+      "website_id": 4572,
+      "parent_account_id": 0
+    },
+    {
+      "id": 13480881,
+      "name": "テスト口座15",
+      "modified": "2020-07-03 12:57:59",
+      "sort": 0,
+      "active": -1,
+      "local_id": 13480881,
+      "website_id": 5209,
+      "parent_account_id": 0
+    },
+    {
+      "id": 13819575,
+      "name": "テスト口座16",
+      "modified": "2025-05-04 06:11:43",
+      "sort": 0,
+      "active": -1,
+      "local_id": 13819575,
+      "website_id": 5166,
+      "parent_account_id": 0
+    },
+    {
+      "id": 14990153,
+      "name": "テスト口座17",
+      "modified": "2021-09-06 08:22:38",
+      "sort": 0,
+      "active": -1,
+      "local_id": 14990153,
+      "website_id": 2975,
+      "parent_account_id": 0
+    },
+    {
+      "id": 16369384,
+      "name": "テスト口座18",
+      "modified": "2024-05-22 08:06:56",
+      "sort": 0,
+      "active": -1,
+      "local_id": 16369384,
+      "website_id": 5894,
+      "parent_account_id": 0
+    },
+    {
+      "id": 16964493,
+      "name": "テスト口座19",
+      "modified": "2024-12-10 10:40:36",
+      "sort": 0,
+      "active": -1,
+      "local_id": 16964493,
+      "website_id": 2987,
+      "parent_account_id": 0
+    },
+    {
+      "id": 1,
+      "name": "テスト口座20",
+      "modified": "2026-01-19 12:47:28",
+      "sort": 1,
+      "active": 1,
+      "local_id": 1,
+      "website_id": 0,
+      "parent_account_id": 1
+    },
+    {
+      "id": 14727221,
+      "name": "テスト口座21",
+      "modified": "2026-03-01 13:11:49",
+      "sort": 2,
+      "active": 1,
+      "local_id": 14727221,
+      "website_id": 6133,
+      "parent_account_id": 0
+    },
+    {
+      "id": 7952113,
+      "name": "テスト口座22",
+      "modified": "2026-03-01 13:11:57",
+      "sort": 3,
+      "active": 1,
+      "local_id": 7952113,
+      "website_id": 5166,
+      "parent_account_id": 0
+    },
+    {
+      "id": 9135655,
+      "name": "テスト口座23",
+      "modified": "2026-03-01 08:02:26",
+      "sort": 5,
+      "active": 1,
+      "local_id": 9135655,
+      "website_id": 5258,
+      "parent_account_id": 0
+    },
+    {
+      "id": 16369385,
+      "name": "テスト口座24",
+      "modified": "2024-05-22 08:06:56",
+      "sort": 7,
+      "active": -1,
+      "local_id": 16369385,
+      "website_id": 5894,
+      "parent_account_id": 0
+    },
+    {
+      "id": 16460798,
+      "name": "テスト口座25",
+      "modified": "2024-05-22 08:06:56",
+      "sort": 8,
+      "active": -1,
+      "local_id": 16460798,
+      "website_id": 5894,
+      "parent_account_id": 0
+    },
+    {
+      "id": 7946565,
+      "name": "テスト口座26",
+      "modified": "2025-11-20 20:30:08",
+      "sort": 9,
+      "active": 1,
+      "local_id": 7946565,
+      "website_id": 2989,
+      "parent_account_id": 0
+    },
+    {
+      "id": 7946568,
+      "name": "テスト口座27",
+      "modified": "2016-03-25 08:07:00",
+      "sort": 9,
+      "active": -1,
+      "local_id": 7946568,
+      "website_id": 0,
+      "parent_account_id": 0
+    },
+    {
+      "id": 8427435,
+      "name": "テスト口座28",
+      "modified": "2018-04-08 16:13:23",
+      "sort": 9,
+      "active": -1,
+      "local_id": 8427435,
+      "website_id": 0,
+      "parent_account_id": 0
+    },
+    {
+      "id": 12734264,
+      "name": "テスト口座29",
+      "modified": "2021-04-29 08:18:11",
+      "sort": 9,
+      "active": -1,
+      "local_id": 12734264,
+      "website_id": 4636,
+      "parent_account_id": 0
+    },
+    {
+      "id": 14990154,
+      "name": "テスト口座30",
+      "modified": "2021-09-06 08:22:38",
+      "sort": 9,
+      "active": -1,
+      "local_id": 14990154,
+      "website_id": 2975,
+      "parent_account_id": 0
+    },
+    {
+      "id": 16348132,
+      "name": "テスト口座31",
+      "modified": "2026-02-26 07:16:50",
+      "sort": 10,
+      "active": 1,
+      "local_id": 16348132,
+      "website_id": 2987,
+      "parent_account_id": 0
+    },
+    {
+      "id": 8144226,
+      "name": "テスト口座32",
+      "modified": "2022-12-25 02:47:12",
+      "sort": 11,
+      "active": 1,
+      "local_id": 8144226,
+      "website_id": 2990,
+      "parent_account_id": 0
+    },
+    {
+      "id": 14161812,
+      "name": "テスト口座33",
+      "modified": "2021-04-29 08:18:24",
+      "sort": 13,
+      "active": -1,
+      "local_id": 14161812,
+      "website_id": 2831,
+      "parent_account_id": 0
+    },
+    {
+      "id": 14990152,
+      "name": "テスト口座34",
+      "modified": "2025-10-08 07:11:51",
+      "sort": 13,
+      "active": 1,
+      "local_id": 14990152,
+      "website_id": 4572,
+      "parent_account_id": 0
+    },
+    {
+      "id": 12734273,
+      "name": "テスト口座35",
+      "modified": "2025-10-08 07:11:51",
+      "sort": 14,
+      "active": 1,
+      "local_id": 12734273,
+      "website_id": 4572,
+      "parent_account_id": 0
+    },
+    {
+      "id": 8268556,
+      "name": "テスト口座36",
+      "modified": "2016-06-25 17:04:05",
+      "sort": 15,
+      "active": -1,
+      "local_id": 8268556,
+      "website_id": 0,
+      "parent_account_id": 0
+    },
+    {
+      "id": 14387503,
+      "name": "テスト口座37",
+      "modified": "2025-10-03 10:05:00",
+      "sort": 15,
+      "active": 1,
+      "local_id": 14387503,
+      "website_id": 2833,
+      "parent_account_id": 0
+    },
+    {
+      "id": 9634745,
+      "name": "テスト口座38",
+      "modified": "2020-12-08 09:28:23",
+      "sort": 16,
+      "active": -1,
+      "local_id": 9634745,
+      "website_id": 2831,
+      "parent_account_id": 0
+    },
+    {
+      "id": 9822569,
+      "name": "テスト口座39",
+      "modified": "2020-12-03 15:34:54",
+      "sort": 17,
+      "active": -1,
+      "local_id": 9822569,
+      "website_id": 2834,
+      "parent_account_id": 0
+    },
+    {
+      "id": 9952341,
+      "name": "テスト口座40",
+      "modified": "2017-12-27 13:43:44",
+      "sort": 18,
+      "active": -1,
+      "local_id": 9952341,
+      "website_id": 0,
+      "parent_account_id": 0
+    },
+    {
+      "id": 12118920,
+      "name": "テスト口座41",
+      "modified": "2019-08-28 11:52:28",
+      "sort": 20,
+      "active": -1,
+      "local_id": 12118920,
+      "website_id": 2975,
+      "parent_account_id": 0
+    },
+    {
+      "id": 12118921,
+      "name": "テスト口座42",
+      "modified": "2019-08-28 11:52:28",
+      "sort": 21,
+      "active": -1,
+      "local_id": 12118921,
+      "website_id": 2975,
+      "parent_account_id": 0
+    },
+    {
+      "id": 12236745,
+      "name": "テスト口座43",
+      "modified": "2020-01-01 08:38:00",
+      "sort": 22,
+      "active": -1,
+      "local_id": 12236745,
+      "website_id": 2975,
+      "parent_account_id": 0
+    },
+    {
+      "id": 12236746,
+      "name": "テスト口座44",
+      "modified": "2020-01-01 08:38:00",
+      "sort": 23,
+      "active": -1,
+      "local_id": 12236746,
+      "website_id": 2975,
+      "parent_account_id": 0
+    },
+    {
+      "id": 16661026,
+      "name": "テスト口座45",
+      "modified": "2024-05-22 08:06:56",
+      "sort": 29,
+      "active": -1,
+      "local_id": 16661026,
+      "website_id": 5894,
+      "parent_account_id": 0
+    },
+    {
+      "id": 17638670,
+      "name": "テスト口座46",
+      "modified": "2026-01-24 06:29:08",
+      "sort": 31,
+      "active": 1,
+      "local_id": 17638670,
+      "website_id": 6154,
+      "parent_account_id": 0
+    },
+    {
+      "id": 18547651,
+      "name": "テスト口座47",
+      "modified": "2026-03-01 13:11:52",
+      "sort": 32,
+      "active": 1,
+      "local_id": 18547651,
+      "website_id": 5894,
+      "parent_account_id": 0
+    },
+    {
+      "id": 18547652,
+      "name": "テスト口座48",
+      "modified": "2026-03-01 13:11:52",
+      "sort": 33,
+      "active": 1,
+      "local_id": 18547652,
+      "website_id": 5894,
+      "parent_account_id": 0
+    },
+    {
+      "id": 18547653,
+      "name": "テスト口座49",
+      "modified": "2026-03-01 13:11:52",
+      "sort": 34,
+      "active": 1,
+      "local_id": 18547653,
+      "website_id": 5894,
+      "parent_account_id": 0
+    },
+    {
+      "id": 18547654,
+      "name": "テスト口座50",
+      "modified": "2026-03-01 13:11:52",
+      "sort": 35,
+      "active": 1,
+      "local_id": 18547654,
+      "website_id": 5894,
+      "parent_account_id": 0
+    }
+  ],
+  "requested": 1772358288
+}
