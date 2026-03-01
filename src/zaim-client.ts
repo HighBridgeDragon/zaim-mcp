@@ -1,4 +1,4 @@
-import crypto from "crypto";
+import crypto from "node:crypto";
 
 import OAuth from "oauth-1.0a";
 
@@ -71,8 +71,7 @@ export class ZaimClient {
 
     if (!response.ok) {
       const body = await response.text().catch(() => "");
-      const truncated =
-        body.length > 200 ? body.slice(0, 200) + "..." : body;
+      const truncated = body.length > 200 ? `${body.slice(0, 200)}...` : body;
       throw new Error(
         `Zaim API error: ${response.status} ${response.statusText} - ${truncated}`,
       );
