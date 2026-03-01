@@ -11,9 +11,15 @@ Zaim家計簿APIのMCPサーバー（Model Context Protocol）。
 - Auth: OAuth 1.0a (oauth-1.0a package)
 
 ## Project Structure
+- `src/cli.ts` — CLI entry point (`zaim-mcp` bin), dispatches `init` subcommand or starts MCP server
 - `src/index.ts` — MCP server entry point, tool registrations
 - `src/helpers.ts` — Pure helper functions (isValidDate, dateSchema, successResult, errorResult)
 - `src/zaim-client.ts` — OAuth-authenticated Zaim API client, `buildURL()` SSRF guard
+- `src/init/` — Interactive setup wizard (`zaim-mcp init`)
+  - `index.ts` — Main init flow: credential input, OAuth dance, client config writing
+  - `oauth.ts` — OAuth 1.0a request/access token exchange with Zaim API
+  - `clients.ts` — MCP client config writers (Claude Desktop, Claude Code, Cursor, Windsurf, VS Code)
+  - `prompt.ts` — Interactive CLI prompt helpers (input, single/multi choice)
 - `src/__tests__/` — Unit tests (Bun built-in test runner)
 - `.githooks/pre-commit` — Biome check on staged files
 - `.github/workflows/ci.yml` — CI: lint + typecheck + test on PR/push to master
@@ -35,7 +41,7 @@ Zaim家計簿APIのMCPサーバー（Model Context Protocol）。
 
 ## Testing
 - Test runner: Bun built-in (`bun:test`), no additional dependencies
-- Test files: `src/__tests__/*.test.ts`
+- Test files: `src/__tests__/**/*.test.ts`
 - Scope: Pure functions only (no mocking, no API calls)
 - Test names use Japanese (consistent with codebase conventions)
 
