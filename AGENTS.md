@@ -61,3 +61,8 @@ Zaim家計簿APIのMCPサーバー（Model Context Protocol）。
 - Main branch: `master`
 - Pre-commit hook: `bunx biome check --staged` (set up via `bun run prepare`)
 - CI runs lint + typecheck + test on push to master and PRs
+
+## Security
+- Supply chain: Safe Chain (malware) + bun audit (CVE) + Dependabot (continuous monitoring)
+- `bun audit --audit-level=high` — CI fails on high/critical vulnerabilities
+- Dependabot: weekly scan (Monday), auto-PR for npm deps + GitHub Actions
