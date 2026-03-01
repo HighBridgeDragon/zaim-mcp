@@ -47,9 +47,9 @@ jobs:
       - run: bun run build
 
       # Node.js + npm publish (Trusted Publishing / OIDC)
-      # registry-url を使わない: actions/setup-node が .npmrc に
-      # NODE_AUTH_TOKEN を書き込み、OIDC トークン交換を阻害するため
+      # Node.js 24.x = npm 11.x (OIDC に npm 11.5.1+ が必要)
       - uses: actions/setup-node@v4
         with:
-          node-version: 22.x
+          node-version: 24.x
+          registry-url: https://registry.npmjs.org
       - run: npm publish --provenance --access public
