@@ -1,4 +1,4 @@
-name: Lint & Typecheck
+name: CI
 on:
   pull_request:
   push:
@@ -13,3 +13,4 @@ jobs:
       - run: bun install --frozen-lockfile
       - run: bun run lint
       - run: bun run typecheck
+      - run: bun run test
