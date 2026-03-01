@@ -36,8 +36,8 @@ server.registerTool(
     description: "Zaimの収支記録を取得します。日付範囲・カテゴリ・種別でフィルタ可能です",
     inputSchema: z.object({
       mode: z.enum(["payment", "income", "transfer"]).optional().describe("種別フィルタ: payment=支出, income=収入, transfer=振替"),
-      start_date: z.string().optional().describe("開始日 (YYYY-MM-DD)"),
-      end_date: z.string().optional().describe("終了日 (YYYY-MM-DD)"),
+      start_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine((d) => !isNaN(Date.parse(d)), { message: "Invalid date" }).optional().describe("開始日 (YYYY-MM-DD)"),
+      end_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine((d) => !isNaN(Date.parse(d)), { message: "Invalid date" }).optional().describe("終了日 (YYYY-MM-DD)"),
       category_id: z.number().optional().describe("カテゴリID"),
       genre_id: z.number().optional().describe("ジャンルID"),
       account_id: z.number().optional().describe("口座ID"),

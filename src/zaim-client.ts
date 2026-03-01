@@ -2,6 +2,7 @@ import OAuth from "oauth-1.0a";
 import crypto from "crypto";
 
 const BASE_URL = "https://api.zaim.net";
+const ALLOWED_HOST = "api.zaim.net";
 
 export class ZaimClient {
   private oauth: OAuth;
@@ -32,6 +33,9 @@ export class ZaimClient {
 
   async get<T = unknown>(path: string, params?: Record<string, string | number>): Promise<T> {
     const url = new URL(path, BASE_URL);
+    if (url.host !== ALLOWED_HOST) {
+      throw new Error("Invalid API path: unauthorized host");
+    }
     if (params) {
       for (const [key, value] of Object.entries(params)) {
         if (value !== undefined && value !== null) {
@@ -57,7 +61,8 @@ export class ZaimClient {
 
     if (!response.ok) {
       const body = await response.text().catch(() => "");
-      throw new Error(`Zaim API error: ${response.status} ${response.statusText} - ${body}`);
+      const truncatedBody = body.length > 200 ? body.slice(0, 200) + "..." : body;
+      throw new Error(`Zaim API error: ${response.status} ${response.statusText} - ${truncatedBody}`);
     }
 
     return response.json() as Promise<T>;
