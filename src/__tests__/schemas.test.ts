@@ -1,8 +1,6 @@
 import { describe, expect, it } from "bun:test";
 
 import {
-  currencyResponseSchema,
-  defaultCategoryResponseSchema,
   homeAccountResponseSchema,
   homeCategoryResponseSchema,
   homeGenreResponseSchema,
@@ -10,8 +8,6 @@ import {
   verifyResponseSchema,
 } from "../schemas/index.js";
 
-import currencyFixture from "./fixtures/currency.json";
-import defaultCategoryFixture from "./fixtures/default-category.json";
 import homeAccountFixture from "./fixtures/home-account.json";
 import homeCategoryFixture from "./fixtures/home-category.json";
 import homeGenreFixture from "./fixtures/home-genre.json";
@@ -48,18 +44,6 @@ const schemas = [
     schema: homeAccountResponseSchema,
     fixture: homeAccountFixture,
     requiredKey: "accounts",
-  },
-  {
-    name: "defaultCategoryResponseSchema",
-    schema: defaultCategoryResponseSchema,
-    fixture: defaultCategoryFixture,
-    requiredKey: "categories",
-  },
-  {
-    name: "currencyResponseSchema",
-    schema: currencyResponseSchema,
-    fixture: currencyFixture,
-    requiredKey: "currencies",
   },
 ] as const;
 

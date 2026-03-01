@@ -1,10 +1,6 @@
 import type { z } from "zod";
 import { homeAccountResponseSchema } from "./account.js";
-import {
-  defaultCategoryResponseSchema,
-  homeCategoryResponseSchema,
-} from "./category.js";
-import { currencyResponseSchema } from "./currency.js";
+import { homeCategoryResponseSchema } from "./category.js";
 import { homeGenreResponseSchema } from "./genre.js";
 import { moneyResponseSchema } from "./money.js";
 import { verifyResponseSchema } from "./verify.js";
@@ -15,8 +11,6 @@ export const responseSchemas: Record<string, z.ZodType> = {
   "/v2/home/category": homeCategoryResponseSchema,
   "/v2/home/genre": homeGenreResponseSchema,
   "/v2/home/account": homeAccountResponseSchema,
-  "/v2/category": defaultCategoryResponseSchema,
-  "/v2/currency": currencyResponseSchema,
 };
 
 export {
@@ -25,6 +19,4 @@ export {
   homeCategoryResponseSchema,
   homeGenreResponseSchema,
   homeAccountResponseSchema,
-  defaultCategoryResponseSchema,
-  currencyResponseSchema,
 };

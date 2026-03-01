@@ -116,24 +116,6 @@ registerSimpleGetTool(
   { mapping: 1 },
 );
 
-registerSimpleGetTool(
-  server,
-  client,
-  "zaim_get_default_categories",
-  "Zaimデフォルトカテゴリ取得",
-  "Zaimのデフォルトカテゴリ一覧を取得します",
-  "/v2/category",
-);
-
-registerSimpleGetTool(
-  server,
-  client,
-  "zaim_get_currencies",
-  "Zaim通貨取得",
-  "利用可能な通貨一覧を取得します",
-  "/v2/currency",
-);
-
 async function main(): Promise<void> {
   const transport = new StdioServerTransport();
   await server.connect(transport);
