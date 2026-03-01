@@ -16,7 +16,9 @@ const endpoints: {
   { path: "/v2/currency" },
 ];
 
-describe("Zaim APIレスポンススキーマ検証", { timeout: 15_000 }, () => {
+const TEST_TIMEOUT = 15_000;
+
+describe("Zaim APIレスポンススキーマ検証", () => {
   let client: ZaimClient;
 
   beforeAll(() => {
@@ -24,14 +26,18 @@ describe("Zaim APIレスポンススキーマ検証", { timeout: 15_000 }, () =>
   });
 
   for (const { path, params } of endpoints) {
-    it(`GET ${path}`, async () => {
-      const data = await client.get(path, params);
-      const schema = responseSchemas[path];
-      const result = schema.safeParse(data);
-      if (!result.success) {
-        console.error("Validation issues:", result.error.issues);
-      }
-      expect(result.success).toBe(true);
-    });
+    it(
+      `GET ${path}`,
+      async () => {
+        const data = await client.get(path, params);
+        const schema = responseSchemas[path];
+        const result = schema.safeParse(data);
+        if (!result.success) {
+          console.error("Validation issues:", result.error.issues);
+        }
+        expect(result.success).toBe(true);
+      },
+      TEST_TIMEOUT,
+    );
   }
 });
