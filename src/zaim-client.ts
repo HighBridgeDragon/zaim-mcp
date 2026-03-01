@@ -2,7 +2,7 @@ import OAuth from "oauth-1.0a";
 import crypto from "crypto";
 
 const BASE_URL = "https://api.zaim.net";
-const ALLOWED_HOST = "api.zaim.net";
+const ALLOWED_HOST = new URL(BASE_URL).host;
 
 export class ZaimClient {
   private oauth: OAuth;
