@@ -12,12 +12,15 @@ Zaim家計簿APIのMCPサーバー（Model Context Protocol）。
 
 ## Project Structure
 - `src/index.ts` — MCP server entry point, tool registrations
-- `src/zaim-client.ts` — OAuth-authenticated Zaim API client
+- `src/helpers.ts` — Pure helper functions (isValidDate, dateSchema, successResult, errorResult)
+- `src/zaim-client.ts` — OAuth-authenticated Zaim API client, `buildURL()` SSRF guard
+- `src/__tests__/` — Unit tests (Bun built-in test runner)
 - `.githooks/pre-commit` — Biome check on staged files
-- `.github/workflows/` — CI: lint + typecheck on PR/push to master
+- `.github/workflows/ci.yml` — CI: lint + typecheck + test on PR/push to master
 
 ## Commands
 - `bun run start` — Start MCP server (stdio transport)
+- `bun run test` — Run unit tests (Bun built-in test runner)
 - `bun run check` — Lint + format + typecheck (all-in-one)
 - `bun run lint` — Biome CI check only
 - `bun run lint:fix` — Biome auto-fix
@@ -27,8 +30,14 @@ Zaim家計簿APIのMCPサーバー（Model Context Protocol）。
 - Biome recommended rules, 2-space indent, 80 char line width
 - Japanese descriptions for MCP tool titles/descriptions
 - Helper pattern: `registerSimpleGetTool()` for parameter-less GET endpoints
-- `successResult()` / `errorResult()` helpers for tool return values
-- SSRF prevention: `buildURL()` validates host before API calls
+- `successResult()` / `errorResult()` helpers in `src/helpers.ts`
+- SSRF prevention: `buildURL()` in `src/zaim-client.ts` validates host before API calls
+
+## Testing
+- Test runner: Bun built-in (`bun:test`), no additional dependencies
+- Test files: `src/__tests__/*.test.ts`
+- Scope: Pure functions only (no mocking, no API calls)
+- Test names use Japanese (consistent with codebase conventions)
 
 ## Environment
 - OAuth credentials via env vars: ZAIM_CONSUMER_KEY, ZAIM_CONSUMER_SECRET, ZAIM_ACCESS_TOKEN, ZAIM_ACCESS_TOKEN_SECRET
@@ -37,4 +46,4 @@ Zaim家計簿APIのMCPサーバー（Model Context Protocol）。
 ## Git
 - Main branch: `master`
 - Pre-commit hook: `bunx biome check --staged` (set up via `bun run prepare`)
-- CI runs on push to master and PRs
+- CI runs lint + typecheck + test on push to master and PRs

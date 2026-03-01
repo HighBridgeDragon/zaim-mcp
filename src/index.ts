@@ -2,38 +2,8 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
+import { dateSchema, errorResult, successResult } from "./helpers.js";
 import { ZaimClient } from "./zaim-client.js";
-
-function isValidDate(d: string): boolean {
-  const [year, month, day] = d.split("-").map(Number);
-  const date = new Date(Date.UTC(year, month - 1, day));
-  return (
-    date.getUTCFullYear() === year &&
-    date.getUTCMonth() + 1 === month &&
-    date.getUTCDate() === day
-  );
-}
-
-const dateSchema = z
-  .string()
-  .regex(/^\d{4}-\d{2}-\d{2}$/)
-  .refine(isValidDate, { message: "Invalid date" });
-
-type TextContent = { type: "text"; text: string };
-type ToolResult = { content: TextContent[]; isError?: boolean };
-
-function successResult(data: unknown): ToolResult {
-  return {
-    content: [{ type: "text", text: JSON.stringify(data, null, 2) }],
-  };
-}
-
-function errorResult(e: unknown): ToolResult {
-  return {
-    content: [{ type: "text", text: `Error: ${(e as Error).message}` }],
-    isError: true,
-  };
-}
 
 function registerSimpleGetTool(
   server: McpServer,
