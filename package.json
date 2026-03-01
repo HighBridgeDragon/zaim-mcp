@@ -1,6 +1,6 @@
 {
   "name": "@highbridgedragon/zaim-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Zaim MCP Server - Access Zaim household finance data via Model Context Protocol",
   "main": "build/index.js",
@@ -23,7 +23,7 @@
     "prepare": "git config core.hooksPath .githooks"
   },
   "engines": {
-    "node": ">=24"
+    "node": ">=18"
   },
   "license": "ISC",
   "repository": {
