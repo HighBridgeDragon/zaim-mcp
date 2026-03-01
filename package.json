@@ -1,12 +1,18 @@
 {
-  "name": "zaim-mcp",
+  "name": "@highbridgedragon/zaim-mcp",
   "version": "1.0.0",
   "type": "module",
   "description": "Zaim MCP Server - Access Zaim household finance data via Model Context Protocol",
-  "main": "src/index.ts",
+  "main": "build/index.js",
+  "bin": {
+    "zaim-mcp": "./build/cli.js"
+  },
+  "files": [
+    "build"
+  ],
   "scripts": {
     "start": "bun run src/index.ts",
-    "build": "tsc --noEmit",
+    "build": "tsc",
     "typecheck": "tsc --noEmit",
     "lint": "biome ci src/",
     "lint:fix": "biome check --write src/",
