@@ -46,11 +46,9 @@ jobs:
       - run: bun run test
       - run: bun run build
 
-      # Node.js で npm publish
+      # Node.js + npm publish (Trusted Publishing / OIDC)
       - uses: actions/setup-node@v4
         with:
-          node-version: lts/*
+          node-version: 22.x
           registry-url: https://registry.npmjs.org
       - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
