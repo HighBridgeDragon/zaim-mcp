@@ -11,7 +11,7 @@ import {
 } from "../schemas/index.js";
 import { ZaimClient } from "../zaim-client.js";
 
-describe("Zaim APIレスポンススキーマ検証", () => {
+describe("Zaim APIレスポンススキーマ検証", { timeout: 15_000 }, () => {
   let client: ZaimClient;
 
   beforeAll(() => {
