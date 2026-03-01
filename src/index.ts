@@ -12,13 +12,14 @@ function registerSimpleGetTool(
   title: string,
   description: string,
   path: string,
+  params?: Record<string, string | number>,
 ): void {
   server.registerTool(
     name,
     { title, description, inputSchema: z.object({}) },
     async () => {
       try {
-        return successResult(await client.get(path));
+        return successResult(await client.get(path, params));
       } catch (e) {
         return errorResult(e);
       }
@@ -76,14 +77,9 @@ server.registerTool(
   },
   async (params) => {
     try {
-      const apiParams: Record<string, string | number> = { mapping: 1 };
-      for (const [key, value] of Object.entries(params)) {
-        if (value !== undefined) {
-          apiParams[key] = value;
-        }
-      }
-      const data = await client.get("/v2/home/money", apiParams);
-      return successResult(data);
+      return successResult(
+        await client.get("/v2/home/money", { mapping: 1, ...params }),
+      );
     } catch (e) {
       return errorResult(e);
     }
@@ -97,6 +93,7 @@ registerSimpleGetTool(
   "Zaimカテゴリ取得",
   "ユーザーのカテゴリ一覧を取得します",
   "/v2/home/category",
+  { mapping: 1 },
 );
 
 registerSimpleGetTool(
@@ -106,6 +103,7 @@ registerSimpleGetTool(
   "Zaimジャンル取得",
   "ユーザーのジャンル一覧を取得します",
   "/v2/home/genre",
+  { mapping: 1 },
 );
 
 registerSimpleGetTool(
@@ -115,6 +113,7 @@ registerSimpleGetTool(
   "Zaim口座取得",
   "ユーザーの口座一覧を取得します",
   "/v2/home/account",
+  { mapping: 1 },
 );
 
 registerSimpleGetTool(
