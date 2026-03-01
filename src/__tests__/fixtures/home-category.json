@@ -1,0 +1,215 @@
+{
+  "categories": [
+    {
+      "id": 101,
+      "mode": "payment",
+      "name": "食費",
+      "sort": 1,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 101,
+      "local_id": 101
+    },
+    {
+      "id": 11,
+      "mode": "income",
+      "name": "給与所得",
+      "sort": 1,
+      "active": 1,
+      "modified": "2000-01-01 00:00:00",
+      "parent_category_id": 11,
+      "local_id": 11
+    },
+    {
+      "id": 102,
+      "mode": "payment",
+      "name": "日用雑貨",
+      "sort": 2,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 102,
+      "local_id": 102
+    },
+    {
+      "id": 12,
+      "mode": "income",
+      "name": "立替金返済",
+      "sort": 2,
+      "active": 1,
+      "modified": "2000-01-01 00:00:00",
+      "parent_category_id": 12,
+      "local_id": 12
+    },
+    {
+      "id": 103,
+      "mode": "payment",
+      "name": "交通",
+      "sort": 3,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 103,
+      "local_id": 103
+    },
+    {
+      "id": 13,
+      "mode": "income",
+      "name": "賞与",
+      "sort": 3,
+      "active": 1,
+      "modified": "2000-01-01 00:00:00",
+      "parent_category_id": 13,
+      "local_id": 13
+    },
+    {
+      "id": 107,
+      "mode": "payment",
+      "name": "交際費",
+      "sort": 4,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 107,
+      "local_id": 107
+    },
+    {
+      "id": 14,
+      "mode": "income",
+      "name": "臨時収入",
+      "sort": 4,
+      "active": 1,
+      "modified": "2000-01-01 00:00:00",
+      "parent_category_id": 14,
+      "local_id": 14
+    },
+    {
+      "id": 108,
+      "mode": "payment",
+      "name": "エンタメ",
+      "sort": 5,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 108,
+      "local_id": 108
+    },
+    {
+      "id": 15,
+      "mode": "income",
+      "name": "事業所得",
+      "sort": 5,
+      "active": 1,
+      "modified": "2000-01-01 00:00:00",
+      "parent_category_id": 15,
+      "local_id": 15
+    },
+    {
+      "id": 109,
+      "mode": "payment",
+      "name": "教育・教養",
+      "sort": 6,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 109,
+      "local_id": 109
+    },
+    {
+      "id": 19,
+      "mode": "income",
+      "name": "その他",
+      "sort": 6,
+      "active": 1,
+      "modified": "2000-01-01 00:00:00",
+      "parent_category_id": 19,
+      "local_id": 19
+    },
+    {
+      "id": 111,
+      "mode": "payment",
+      "name": "美容・衣服",
+      "sort": 7,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 111,
+      "local_id": 111
+    },
+    {
+      "id": 110,
+      "mode": "payment",
+      "name": "医療・保険",
+      "sort": 8,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 110,
+      "local_id": 110
+    },
+    {
+      "id": 104,
+      "mode": "payment",
+      "name": "通信",
+      "sort": 9,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 104,
+      "local_id": 104
+    },
+    {
+      "id": 105,
+      "mode": "payment",
+      "name": "水道・光熱",
+      "sort": 10,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 105,
+      "local_id": 105
+    },
+    {
+      "id": 106,
+      "mode": "payment",
+      "name": "住まい",
+      "sort": 11,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 106,
+      "local_id": 106
+    },
+    {
+      "id": 112,
+      "mode": "payment",
+      "name": "クルマ",
+      "sort": 12,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 112,
+      "local_id": 112
+    },
+    {
+      "id": 113,
+      "mode": "payment",
+      "name": "税金",
+      "sort": 13,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 113,
+      "local_id": 113
+    },
+    {
+      "id": 114,
+      "mode": "payment",
+      "name": "大型出費",
+      "sort": 14,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 114,
+      "local_id": 114
+    },
+    {
+      "id": 199,
+      "mode": "payment",
+      "name": "その他",
+      "sort": 15,
+      "active": 1,
+      "modified": "2022-02-12 07:56:02",
+      "parent_category_id": 199,
+      "local_id": 199
+    }
+  ],
+  "requested": 1772358288
+}

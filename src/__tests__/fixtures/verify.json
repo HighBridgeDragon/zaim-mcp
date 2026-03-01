@@ -1,0 +1,20 @@
+{
+  "me": {
+    "login": "test_login",
+    "input_count": 5049,
+    "day_count": 1569,
+    "repeat_count": 0,
+    "id": 12345,
+    "currency_code": "JPY",
+    "week": 0,
+    "month": 1,
+    "active": 1,
+    "day": 1,
+    "profile_modified": "2023-07-26 16:28:31",
+    "name": "テストユーザー",
+    "created": "2016-03-25 07:35:38",
+    "profile_image_url": "https://example.com/image.png",
+    "cover_image_url": "https://example.com/image.png"
+  },
+  "requested": 1772358287
+}
