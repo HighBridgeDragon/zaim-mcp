@@ -1,34 +1,41 @@
-import OAuth from "oauth-1.0a";
 import crypto from "crypto";
+
+import OAuth from "oauth-1.0a";
 
 const BASE_URL = "https://api.zaim.net";
 const ALLOWED_HOST = new URL(BASE_URL).host;
+
+function requireEnv(name: string): string {
+  const value = process.env[name];
+  if (!value) {
+    throw new Error(`Missing required environment variable: ${name}`);
+  }
+  return value;
+}
 
 export class ZaimClient {
   private oauth: OAuth;
   private token: OAuth.Token;
 
   constructor() {
-    const consumerKey = process.env.ZAIM_CONSUMER_KEY;
-    const consumerSecret = process.env.ZAIM_CONSUMER_SECRET;
-    const accessToken = process.env.ZAIM_ACCESS_TOKEN;
-    const accessTokenSecret = process.env.ZAIM_ACCESS_TOKEN_SECRET;
-
-    if (!consumerKey || !consumerSecret || !accessToken || !accessTokenSecret) {
-      throw new Error(
-        "Missing Zaim API credentials. Set ZAIM_CONSUMER_KEY, ZAIM_CONSUMER_SECRET, ZAIM_ACCESS_TOKEN, ZAIM_ACCESS_TOKEN_SECRET environment variables."
-      );
-    }
-
     this.oauth = new OAuth({
-      consumer: { key: consumerKey, secret: consumerSecret },
+      consumer: {
+        key: requireEnv("ZAIM_CONSUMER_KEY"),
+        secret: requireEnv("ZAIM_CONSUMER_SECRET"),
+      },
       signature_method: "HMAC-SHA1",
       hash_function(baseString, key) {
-        return crypto.createHmac("sha1", key).update(baseString).digest("base64");
+        return crypto
+          .createHmac("sha1", key)
+          .update(baseString)
+          .digest("base64");
       },
     });
 
-    this.token = { key: accessToken, secret: accessTokenSecret };
+    this.token = {
+      key: requireEnv("ZAIM_ACCESS_TOKEN"),
+      secret: requireEnv("ZAIM_ACCESS_TOKEN_SECRET"),
+    };
   }
 
   private buildURL(path: string): URL {
@@ -39,7 +46,10 @@ export class ZaimClient {
     return url;
   }
 
-  async get<T = unknown>(path: string, params?: Record<string, string | number>): Promise<T> {
+  async get(
+    path: string,
+    params?: Record<string, string | number>,
+  ): Promise<unknown> {
     const url = this.buildURL(path);
     if (params) {
       for (const [key, value] of Object.entries(params)) {
@@ -49,27 +59,25 @@ export class ZaimClient {
       }
     }
 
-    const requestData: OAuth.RequestOptions = {
-      url: url.toString(),
-      method: "GET",
-    };
+    const urlString = url.toString();
+    const headers = this.oauth.toHeader(
+      this.oauth.authorize({ url: urlString, method: "GET" }, this.token),
+    );
 
-    const headers = this.oauth.toHeader(this.oauth.authorize(requestData, this.token));
-
-    const response = await fetch(url.toString(), {
+    const response = await fetch(urlString, {
       method: "GET",
-      headers: {
-        ...headers,
-        Accept: "application/json",
-      },
+      headers: { ...headers, Accept: "application/json" },
     });
 
     if (!response.ok) {
       const body = await response.text().catch(() => "");
-      const truncatedBody = body.length > 200 ? body.slice(0, 200) + "..." : body;
-      throw new Error(`Zaim API error: ${response.status} ${response.statusText} - ${truncatedBody}`);
+      const truncated =
+        body.length > 200 ? body.slice(0, 200) + "..." : body;
+      throw new Error(
+        `Zaim API error: ${response.status} ${response.statusText} - ${truncated}`,
+      );
     }
 
-    return response.json() as Promise<T>;
+    return response.json();
   }
 }
