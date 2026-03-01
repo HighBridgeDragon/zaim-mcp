@@ -12,8 +12,6 @@ const endpoints: {
   { path: "/v2/home/category", params: { mapping: 1 } },
   { path: "/v2/home/genre", params: { mapping: 1 } },
   { path: "/v2/home/account", params: { mapping: 1 } },
-  { path: "/v2/category" },
-  { path: "/v2/currency" },
 ];
 
 const TEST_TIMEOUT = 15_000;

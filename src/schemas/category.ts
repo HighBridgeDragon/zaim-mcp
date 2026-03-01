@@ -19,18 +19,3 @@ export const homeCategoryResponseSchema = z
     requested: z.number(),
   })
   .passthrough();
-
-const defaultCategoryItemSchema = z
-  .object({
-    id: z.number(),
-    name: z.string(),
-    mode: z.enum(["payment", "income"]),
-  })
-  .passthrough();
-
-export const defaultCategoryResponseSchema = z
-  .object({
-    categories: z.array(defaultCategoryItemSchema),
-    requested: z.number(),
-  })
-  .passthrough();
