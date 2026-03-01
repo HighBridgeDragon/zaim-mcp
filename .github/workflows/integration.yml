@@ -1,0 +1,22 @@
+name: Integration Tests
+
+on:
+  schedule:
+    # Weekly on Monday at 09:00 UTC (18:00 JST)
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run test:integration
+        env:
+          ZAIM_CONSUMER_KEY: ${{ secrets.ZAIM_CONSUMER_KEY }}
+          ZAIM_CONSUMER_SECRET: ${{ secrets.ZAIM_CONSUMER_SECRET }}
+          ZAIM_ACCESS_TOKEN: ${{ secrets.ZAIM_ACCESS_TOKEN }}
+          ZAIM_ACCESS_TOKEN_SECRET: ${{ secrets.ZAIM_ACCESS_TOKEN_SECRET }}
