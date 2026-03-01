@@ -20,9 +20,15 @@ Zaim家計簿APIのMCPサーバー（Model Context Protocol）。
   - `oauth.ts` — OAuth 1.0a request/access token exchange with Zaim API
   - `clients.ts` — MCP client config writers (Claude Desktop, Claude Code, Cursor, Windsurf, VS Code)
   - `prompt.ts` — Interactive CLI prompt helpers (input, single/multi choice)
+- `src/schemas/` — Zaim APIレスポンス用Zodスキーマ（互換性保証）
+  - `verify.ts`, `money.ts`, `category.ts`, `genre.ts`, `account.ts`, `currency.ts` — エンドポイント別スキーマ
+  - `index.ts` — barrel export + `responseSchemas` パス→スキーマ マップ
 - `src/__tests__/` — Unit tests (Bun built-in test runner)
+- `src/__integration__/` — 統合テスト（実Zaim APIを叩く、要クレデンシャル）
+- `scripts/capture-responses.ts` — Zaim APIレスポンスキャプチャ（フィクスチャ生成用）
 - `.githooks/pre-commit` — Biome check on staged files
 - `.github/workflows/ci.yml` — CI: lint + typecheck + test on PR/push to master
+- `.github/workflows/integration.yml` — 統合テスト: 週次スケジュール + 手動トリガー（GitHub Secrets必要）
 
 ## Commands
 - `bun run start` — Start MCP server (stdio transport)
@@ -31,6 +37,7 @@ Zaim家計簿APIのMCPサーバー（Model Context Protocol）。
 - `bun run lint` — Biome CI check only
 - `bun run lint:fix` — Biome auto-fix
 - `bun run typecheck` — TypeScript type check (`tsc --noEmit`)
+- `bun run test:integration` — 統合テスト実行（要.envクレデンシャル）
 
 ## Code Style
 - Biome recommended rules, 2-space indent, 80 char line width
@@ -42,7 +49,8 @@ Zaim家計簿APIのMCPサーバー（Model Context Protocol）。
 ## Testing
 - Test runner: Bun built-in (`bun:test`), no additional dependencies
 - Test files: `src/__tests__/**/*.test.ts`
-- Scope: Pure functions only (no mocking, no API calls)
+- Scope: Pure functions + Zodスキーマ検証（no mocking, no API calls）
+- Integration tests: `src/__integration__/` — 実API呼び出しでスキーマ検証（CI: 週次 + 手動）
 - Test names use Japanese (consistent with codebase conventions)
 
 ## Environment
