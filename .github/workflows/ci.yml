@@ -10,7 +10,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
+
+      # Safe Chain: マルウェア・typosquatting検知
+      - name: Setup safe-chain
+        run: |
+          npm i -g @aikidosec/safe-chain
+          safe-chain setup-ci
+
       - run: bun install --frozen-lockfile
+
+      # bun audit: 既知CVE検知
+      - name: Security audit
+        run: bun audit --audit-level=high
+
       - run: bun run lint
       - run: bun run typecheck
       - run: bun run test
