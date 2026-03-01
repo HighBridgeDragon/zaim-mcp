@@ -1,10 +1,12 @@
 # zaim-mcp
 
-Zaim家計簿APIのMCPサーバー。Claude DesktopなどのMCPクライアントからZaimの収支データにアクセスできます。
+Zaim家計簿APIの**非公式**MCPサーバー。Claude DesktopなどのMCPクライアントからZaimの収支データにアクセスできます。
+
+> **Note**: 本プロジェクトは[Zaim](https://zaim.net/)公式のものではなく、個人が開発・運営しています。
 
 ## 必要なもの
 
-- [Node.js](https://nodejs.org/) v18+
+- [Node.js](https://nodejs.org/) v24+
 - [Zaim開発者アカウント](https://dev.zaim.net/) — OAuth認証情報の取得に必要
 
 ## セットアップ
