@@ -2,6 +2,8 @@ import crypto from "node:crypto";
 
 import OAuth from "oauth-1.0a";
 
+import { responseSchemas } from "./schemas/index.js";
+
 const BASE_URL = "https://api.zaim.net";
 const ALLOWED_HOST = new URL(BASE_URL).host;
 
@@ -46,6 +48,18 @@ export class ZaimClient {
     };
   }
 
+  private validateResponse(path: string, data: unknown): void {
+    const schema = responseSchemas[path];
+    if (!schema) return;
+    const result = schema.safeParse(data);
+    if (!result.success) {
+      console.error(
+        `[zaim-mcp] Schema validation warning for ${path}:`,
+        JSON.stringify(result.error.issues, null, 2),
+      );
+    }
+  }
+
   async get(
     path: string,
     params?: Record<string, string | number>,
@@ -77,6 +91,8 @@ export class ZaimClient {
       );
     }
 
-    return response.json();
+    const data = await response.json();
+    this.validateResponse(path, data);
+    return data;
   }
 }
