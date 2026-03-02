@@ -48,7 +48,7 @@ jobs:
 
       # Node.js + npm publish (Trusted Publishing / OIDC)
       # Node.js 24.x = npm 11.x (OIDC に npm 11.5.1+ が必要)
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 24.x
           registry-url: https://registry.npmjs.org
