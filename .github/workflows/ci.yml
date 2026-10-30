@@ -8,8 +8,8 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: oven-sh/setup-bun@v2
+      - uses: actions/checkout@v6.1.0
+      - uses: oven-sh/setup-bun@v2.2.0
 
       # Safe Chain: マルウェア・typosquatting検知
       - name: Setup safe-chain
