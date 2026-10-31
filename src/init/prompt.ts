@@ -14,7 +14,7 @@ function formatOptions(options: { label: string }[]): string {
 export async function askInput(question: string): Promise<string> {
   const rl = createInterface();
   return new Promise((resolve) => {
-    rl.question(question, (answer) => {
+    rl.question(question, (answer: string) => {
       rl.close();
       resolve(answer.trim());
     });
