@@ -10,7 +10,8 @@
     "outDir": "./build",
     "rootDir": "./src",
     "declaration": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "types": ["node", "bun"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "src/__tests__", "src/__integration__"]

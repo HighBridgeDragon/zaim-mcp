@@ -31,9 +31,12 @@
     "url": "https://github.com/HighBridgeDragon/zaim-mcp"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.27.1",
+    "@modelcontextprotocol/sdk": "^1.32.2",
     "oauth-1.0a": "^2.2.6",
     "zod": "^4.3.6"
+  },
+  "overrides": {
+    "ip-address": "^10.7.4"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.4",
